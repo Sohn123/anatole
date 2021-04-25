@@ -232,6 +232,17 @@ a:active {
     margin-top: -5px;
 }
 
+.language-menu {
+  float: right;
+}
+
+#active-lang {
+  font-weight: bold;
+  color: var(--nav-text-color);
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--nav-text-color);
+}
+
 .page-top .information {
     float: right;
     padding-top: 12px;

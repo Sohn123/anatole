@@ -16,19 +16,20 @@
                         {{ end }}
                    title="{{ .Title }}">{{ .Name }}</a></li>
         {{ end }}
-        {{ if .Site.IsMultiLingual }}
-            {{ range $.Site.Home.AllTranslations }}
-                <li><a href="{{ .RelPermalink }}"
-                       title="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a>
-                </li>
-            {{ end }}
-        {{ end }}
         {{ if not .Site.Params.disableThemeSwitcher }}
             <li class="theme-switch-item">
                 <a class="theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a>
             </li>
+        {{ end }}
+        {{ if .Site.IsMultiLingual }}
+            {{ $lang := .Language.Lang}}
+            {{ range $.Site.Home.AllTranslations }}
+                {{ $active := eq $lang .Language.Lang}}
+                    <li class="language-menu"><a href="{{ .Permalink }}" {{ if $active }} id="active-lang" {{ end }}
+                        title="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a></li>
+            {{ end }}
         {{ end }}
     </ul>
 </div>
