@@ -922,6 +922,8 @@ a.btn {
 print {
     .sidebar {
         width: 100%;
+        min-height: auto;
+        height: auto;
         position: absolute;
         border-right: none;
         z-index: 1;
@@ -1027,8 +1029,14 @@ print {
     .list-with-title .listing .listing-post a {
         width: 80%;
     }
+    .language-menu {
+        float: none;
+    }
     #qr-code {
         display: none;
+    }
+    #active-lang {
+        padding: 0;
     }
 }
 
