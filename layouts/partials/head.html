@@ -1,14 +1,15 @@
 <head>
-    <title> {{.Site.Params.author}}{{ with .Title }} | {{ . }}{{ end }} </title>
 
     <!-- Meta -->
     <meta charset="utf-8">
+    <title> {{.Site.Params.author}}{{ with .Title }} | {{ . }}{{ end }} </title>
     {{- hugo.Generator -}}
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     {{- if .Site.Params.googleSiteVerify }}
     <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerify }}">
     {{- end -}}
+    <meta name="theme-color" content="">
 
     <!-- CSS -->
     
