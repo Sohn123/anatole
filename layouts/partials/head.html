@@ -56,6 +56,9 @@
 
     <link rel="canonical" href="{{ .RelPermalink }}">
 
+    <!-- Manifest -->
+    <link rel="manifest" href="{{ .Site.Params.favicon | relURL }}site.webmanifest">
+
     <!-- RSS -->
     {{ with .OutputFormats.Get "rss" -}}
         {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
