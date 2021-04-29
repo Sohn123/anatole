@@ -3,6 +3,7 @@
     .sidebar {
         width: 100%;
         min-height: 420px;
+        justify-content: flex-end;
         height: auto;
         position: absolute;
         border-right: none;
