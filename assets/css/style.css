@@ -1102,48 +1102,7 @@ print {
         width: 25%;
     }
 }
-.fa-calendar-day:before {
-    content: "\f783"
-}
-.fa-github:before {
-    content: "\f09b"
-}
-.fa-linkedin:before {
-    content: "\f08c"
-}
-.fa-instagram:before {
-    content: "\f16d"
-}
 
-.fa-envelope:before {
-    content: "\f0e0"
-}
-
-.fa-2x {
-    font-size: 2em
-}
-
-.fa,.fab,.fad,.fal,.far,.fas {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1
-}
-
-.fab,.far {
-    font-weight: 400
-}
-
-.fa,.far,.fas {
-    font-family: "Font Awesome 5 Free"
-}
-
-.fa,.fas {
-    font-weight: 900
-}
 /* (CONTACT) FORM */
 
 .contact-form {
