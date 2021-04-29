@@ -12,6 +12,7 @@
     <meta name="theme-color" content="">
 
     <!-- CSS -->
+    <link rel="preload" as="font" href="/css/fonts/icomoon.ttf?i4njgo" type="font/ttf" crossorigin="">
     
     {{ if eq .Site.Language.LanguageDirection "rtl"}}
     {{ $style := resources.Get "css/style.rtl.css" | resources.Minify | resources.Fingerprint }}

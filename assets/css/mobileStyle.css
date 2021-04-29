@@ -2,14 +2,11 @@
 
     .sidebar {
         width: 100%;
-        min-height: auto;
+        min-height: 420px;
         height: auto;
         position: absolute;
         border-right: none;
         z-index: 1;
-    }
-    .sidebar .logo-title {
-        padding-top: 120px;
     }
     .sidebar .logo-title .title img {
         width: 100px;

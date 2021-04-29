@@ -86,7 +86,7 @@ blockquote {
     display: inline-block;
     font-size: 15px;
     line-height: 1;
-    margin: 5px 8px 5px 0;
+    margin: 5px 10px 5px 0;
 }
 
 pre {
@@ -349,7 +349,7 @@ a:active {
 }
 
 .post .post-footer .info .separator a {
-    margin-right: 0.2em;
+    margin-right: 0.6em;
 }
 
 .post .post-footer .meta .info .date {
@@ -656,7 +656,6 @@ a:active {
         width: 25%;
     }
 }
-
 @font-face {
   font-family: 'icomoon';
   src:  url('fonts/icomoon.eot?i4njgo');
