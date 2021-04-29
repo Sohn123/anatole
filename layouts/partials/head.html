@@ -27,6 +27,21 @@
         integrity="{{ $style.Data.Integrity }}"
         crossorigin="anonymous"
         type="text/css">
+    {{ $style := resources.Get "css/mobileStyle.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet"
+        href="{{ $style.RelPermalink }}"
+        integrity="{{ $style.Data.Integrity }}"
+        media='screen and (max-width: 960px), print'
+        crossorigin="anonymous"
+        type="text/css">
+    {{end}}
+    {{ if not .Site.Params.doNotLoadAnimations}}
+    {{ $style := resources.Get "css/animation.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet"
+        href="{{ $style.RelPermalink }}"
+        integrity="{{ $style.Data.Integrity }}"
+        crossorigin="anonymous"
+        type="text/css">
     {{end}}
     {{ $markupHighlightStyle := resources.Get "css/markupHighlight.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet"
