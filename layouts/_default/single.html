@@ -8,12 +8,12 @@
                 <h3>{{ .Title }}</h3>
                 {{ if or (eq .Type "post") (eq .Type .Site.Params.postSectionName) }}
                     <div class="info">
-                        <em class="fas fa-calendar-day"></em>
+                        <em class="fas icon-calendar"></em>
                         <span class="date">{{ if isset .Site.Params "singledateformat" }} 
                                                 {{ .Date.Format .Site.Params.singleDateFormat }}
                                            {{ else }} {{.Date.Format "Mon, Jan 2, 2006"}} 
                                            {{ end }}</span>
-                        <em class="fas fa-stopwatch"></em>
+                        <em class="fas icon-stopwatch"></em>
                         <span class="reading-time">{{ i18n "reading_time" .ReadingTime }}</span>
                     </div>
                 {{ end }}
