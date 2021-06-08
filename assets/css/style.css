@@ -22,7 +22,7 @@
 html[data-theme='dark'] {
     --bg-color: #292a2d;
     --secondary-bg-color: rgb(119, 119, 122);
-    --heading-color: #rgb(169, 169, 179);
+    --heading-color: rgb(169, 169, 179);
     --body-color: rgb(169, 169, 179);
     --post-color: rgba(0, 0, 0, 0.44);
     --border-color: #30363d;
