@@ -65,5 +65,6 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', swi
 
 window.addEventListener("load", function (event) {
     setThemeColor();
-});
+}, false);
+
 init();
