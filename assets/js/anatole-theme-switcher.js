@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // Automatic Switching
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', switchTheme, false);
 
+init();
+
 window.addEventListener("load", function (event) {
     setThemeColor();
 }, false);
-
-init();
