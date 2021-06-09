@@ -222,6 +222,7 @@ a:active {
 
 
 .sidebar .logo-title .title img {
+    aspect-ratio: 1/1;
     width: 127px;
     border-radius: 50%;
 }
