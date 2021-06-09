@@ -45,13 +45,19 @@
         type="text/css">
     {{end}}
     {{ $markupHighlightStyle := resources.Get "css/markupHighlight.css" | resources.Minify | resources.Fingerprint }}
-        <link rel="preload" href="{{ $markupHighlightStyle.RelPermalink }}" integrity="{{ $markupHighlightStyle.RelPermalink }}" crossorigin="anonymous" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="preload" 
+              href="{{ $markupHighlightStyle.RelPermalink }}" 
+              integrity="{{ $markupHighlightStyle.Data.Integrity }}" 
+              crossorigin="anonymous" 
+              as="style" 
+              onload="this.onload=null;this.rel='stylesheet'">
         <noscript>
-    <link rel="stylesheet"
-        href="{{ $markupHighlightStyle.RelPermalink }}"
-        integrity="{{ $markupHighlightStyle.Data.Integrity }}"
-        crossorigin="anonymous"
-        type="text/css"></noscript>
+            <link rel="stylesheet"
+                href="{{ $markupHighlightStyle.RelPermalink }}"
+                integrity="{{ $markupHighlightStyle.Data.Integrity }}"
+                crossorigin="anonymous"
+                type="text/css">
+        </noscript>
     {{ range .Site.Params.customCss }}
         {{ $minstyles := resources.Get . }}
         {{ $styles := $minstyles | resources.Minify | resources.Fingerprint }}
