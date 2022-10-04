@@ -142,8 +142,12 @@
 
   {{- end -}}
 
+  <!-- Manifest -->
+  <link rel="manifest" href="site.webmanifest" />
 
   <!-- Favicons -->
+  <link rel="icon" href="{{ .Site.Params.favicon | relURL }}favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="{{ .Site.Params.favicon | relURL }}safari-pinned-tab.svg" color="#152027">
   <link rel="shortcut icon" href="{{ .Site.Params.favicon | relURL }}favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.favicon | relURL }}apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.Params.favicon | relURL }}favicon-32x32.png" />
