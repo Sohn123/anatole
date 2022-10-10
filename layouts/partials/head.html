@@ -121,9 +121,8 @@
 
   {{- end -}}
   {{ $style := resources.Get "css/font.css" }}
-  {{ $style := $style | resources.PostCSS }}
   {{ if hugo.IsProduction }}
-    {{ $style = $style | minify | fingerprint | resources.PostProcess }}
+    {{ $style = $style | minify | fingerprint }}
   {{ end }}
   <link
     rel="stylesheet"

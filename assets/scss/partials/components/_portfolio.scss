@@ -163,7 +163,6 @@
 
     @include themed() {
       border: 1px solid t('primary-light');
-      color: t('info');
     }
 
     &-wrapper {
