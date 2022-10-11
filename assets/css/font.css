@@ -2,8 +2,9 @@
   font-family: 'custom-icon-font';
   src: url('/fonts/custom-icon-font.eot?cmvh9r');
   src: url('/fonts/custom-icon-font.eot?cmvh9r#iefix') format('embedded-opentype'),
-    url('/fonts/custom-icon-font.woff?cmvh9r') format('woff'),
-    url('/fonts/custom-icon-font.ttf?cmvh9r') format('truetype'),
+    url('/fonts/custom-icon-font.woff2') format('woff2'),
+    url('/fonts/custom-icon-font.woff') format('woff'),
+    url('/fonts/custom-icon-font.ttf') format('truetype'),
     url('/fonts/custom-icon-font.svg?cmvh9r#custom-icon-font') format('svg');
   font-weight: normal;
   font-style: normal;
