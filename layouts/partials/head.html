@@ -239,8 +239,8 @@
         const getStoredThemeStyle = () => localStorage.getItem('theme');
 
         const setThemeStyle = (style) => {
-          localStorage.setItem('theme', style);
           document.documentElement.setAttribute('data-theme', style)
+          localStorage.setItem('theme', style);
         };
 
         const switchTheme = () => {
