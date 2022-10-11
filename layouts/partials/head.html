@@ -22,7 +22,7 @@
   </title>
 
     {{ if not .Site.Params.disableThemeSwitcher }}
-      <script>
+      <script data-cfasync="false">
         performance.mark('dark')
         const getStoredThemeStyle = () => localStorage.getItem('theme');
 
