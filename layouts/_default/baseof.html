@@ -26,12 +26,12 @@
           body.classList.remove(prevTheme);
           body.classList.add(`theme--${style}`);
         };
-        
+
         const setThemeStyle = (style) => {
           localStorage.setItem('theme', style);
           setThemeClass(style);
         };
-        
+
         const switchTheme = () => {
           const currThemeStyle = getStoredThemeStyle();
           switch (currThemeStyle) {
@@ -46,7 +46,7 @@
               break;
           }
         };
-        
+
         document.addEventListener(
           'DOMContentLoaded',
           () => {
@@ -66,6 +66,8 @@
               setThemeStyle('dark');
             }
           }
+          document.body.style.visibility = 'visible';
+          document.body.style.opacity = 1;
       </script>
     {{ end }}
     <div class="wrapper">
