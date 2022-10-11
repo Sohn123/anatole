@@ -173,18 +173,6 @@
     crossorigin="anonymous"
   ></script>
 
-  {{ if not .Site.Params.disableThemeSwitcher }}
-    {{ $anatoleThemeSwitcher := resources.Get "js/anatole-theme-switcher.js" }}
-    {{ $secureThemeSwitcherJS := $anatoleThemeSwitcher |  resources.Minify | resources.Fingerprint }}
-    <script
-      type="text/javascript"
-      src="{{ $secureThemeSwitcherJS.RelPermalink }}"
-      integrity="{{ $secureThemeSwitcherJS.Data.Integrity }}"
-      crossorigin="anonymous"
-      rel="preload"
-    ></script>
-  {{ end }}
-
   {{- $js := "" -}}
   {{- range .Site.Params.customJs -}}
     {{- if or (in . "http://") (in . "https://") -}}
