@@ -167,6 +167,7 @@
   {{ $anatoleHeader := resources.Get "js/anatole-header.js" }}
   {{ $secureHeaderJS := $anatoleHeader |  resources.Minify | resources.Fingerprint }}
   <script
+    defer
     type="text/javascript"
     src="{{ $secureHeaderJS.RelPermalink }}"
     integrity="{{ $secureHeaderJS.Data.Integrity }}"
@@ -236,6 +237,7 @@
   {{ partial "schema.html" . }}
     {{ if not .Site.Params.disableThemeSwitcher }}
       <script>
+        performance.mark('dark')
         const getStoredThemeStyle = () => localStorage.getItem('theme');
 
         const setThemeStyle = (style) => {
@@ -277,6 +279,8 @@
               setThemeStyle('dark');
             }
           }
+          performance.measure("Changed to dark", 'dark')
+          performance.measure("Start to finish")
       </script>
     {{ end }}
 </head>
