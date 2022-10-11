@@ -4,11 +4,9 @@
   display: inline-block;
   font-size: 1.4rem;
 
-  @include themed() {
-    border: t('border');
-    background-color: t('primary-lighter');
-    color: t('primary') !important;
-  }
+    border: var(--border);
+    background-color: var(--primary-lighter);
+    color: var(--primary) !important;
 
   @include ltr {
     margin: 5px 8px 5px 0;

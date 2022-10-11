@@ -1,31 +1,25 @@
 a {
   text-decoration: none;
 
-  @include themed() {
-    color: t('primary');
-  }
+  color: var(--primary);
 
   &:hover {
-    @include themed() {
-      color: t('info');
-    }
+    color: var(--info);
   }
 }
 
 blockquote {
   padding: 0 1em;
 
-  @include themed() {
-    color: t('primary');
+    color: var(--primary);
 
     @include ltr {
-      border-left: t('border');
+      border-left: var(--border);
     }
 
     @include rtl {
-      border-right: t('border');
+      border-right: var(--border);
     }
-  }
 }
 
 p {

@@ -1,7 +1,5 @@
 .medium-zoom-overlay {
-  @include themed() {
-    background: t('accent');
-  }
+    background: var(--accent);
   position: fixed;
   top: 0;
   right: 0;

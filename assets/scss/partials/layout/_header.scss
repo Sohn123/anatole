@@ -1,7 +1,5 @@
 .header {
-  @include themed() {
-    background-color: t('accent');
-  }
+    background-color: var(--accent);
   width: 100%;
   position: fixed;
   z-index: 1;
@@ -10,9 +8,7 @@
   @include desktop {
     position: sticky;
 
-    @include themed() {
-      border-bottom: t('border');
-    }
+      border-bottom: var(--border);
   }
 
   @include print {

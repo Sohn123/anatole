@@ -17,10 +17,8 @@
       position: absolute;
       top: 32px;
 
-      @include themed() {
-        background: t('primary-lighter');
-        box-shadow: t('shadow');
-      }
+        background: var(--primary-lighter);
+        box-shadow: var(--shadow);
     }
 
     &-item {
@@ -32,9 +30,7 @@
       white-space: nowrap;
       padding-top: 24px;
 
-      @include themed() {
-        color: t('primary');
-      }
+        color: var(--primary);
 
       @include desktop {
         padding: 12px;
@@ -55,11 +51,9 @@
       transform: rotate(45deg) translateY(0px) translatex(10px);
       width: 14px;
 
-      @include themed() {
-        background: t('primary-lighter');
-        box-shadow: t('shadow');
-        border-color: t('primary-lighter');
-      }
+        background: var(--primary-lighter);
+        box-shadow: var(--shadow);
+        border-color: var(--primary-lighter);
     }
   }
 

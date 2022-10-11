@@ -12,20 +12,16 @@
   list-style: none;
 }
 .form-style ul li {
-  @include themed() {
-    background-color: t('accent');
-    color: t('primary');
-  }
+    background-color: var(--accent);
+    color: var(--primary);
   display: block;
   margin-bottom: 10px;
   min-height: 35px;
 }
 .form-style ul li .field-style {
-  @include themed() {
-    border: t('border');
-    background-color: t('accent');
-    color: t('primary');
-  }
+    border: var(--border);
+    background-color: var(--accent);
+    color: var(--primary);
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

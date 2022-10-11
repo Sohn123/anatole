@@ -1,9 +1,7 @@
 .post {
   margin: 30px;
 
-  @include themed() {
-    background-color: t('accent');
-  }
+    background-color: var(--accent);
 
   &__meta {
     display: flex;
@@ -52,45 +50,35 @@
       overflow: hidden;
       transition: box-shadow 0.3s ease;
 
-      @include themed() {
-        box-shadow: t('shadow');
-      }
+        box-shadow: var(--shadow);
     }
   }
 
   &__content {
     a {
-      @include themed() {
-        color: t('info');
-      }
+        color: var(--info);
     }
 
     .chroma {
-      @include themed() {
-        background-color: t('primary-lighter');
+        background-color: var(--primary-lighter);
         display: block;
-        border-bottom: 1px solid t('primary-lighter');
-      }
+        border-bottom: 1px solid var(--primary-lighter);
     }
 
     code {
       font-family: monospace;
       padding: 0 2px;
 
-      @include themed() {
-        background-color: t('primary-lighter');
-        border: 1px solid t('primary-lighter');
+        background-color: var(--primary-lighter);
+        border: 1px solid var(--primary-lighter);
         border-radius: 2px;
-      }
     }
 
     pre {
       padding: 5px;
       overflow-x: auto;
 
-      @include themed() {
-        background-color: t('primary-lighter');
-      }
+        background-color: var(--primary-lighter);
     }
 
     h1 {
@@ -103,9 +91,7 @@
       a {
         font-size: $font-size-h1;
 
-        @include themed() {
-          color: t('primary');
-        }
+          color: var(--primary);
       }
     }
 
@@ -120,9 +106,7 @@
       a {
         font-size: $font-size-h2;
 
-        @include themed() {
-          color: t('primary');
-        }
+          color: var(--primary);
       }
     }
 
@@ -137,9 +121,7 @@
       a {
         font-size: $font-size-h3;
 
-        @include themed() {
-          color: t('primary');
-        }
+          color: var(--primary);
       }
     }
 
@@ -214,11 +196,7 @@
 
   &__footer {
     padding: 12px 0;
-
-    @include themed() {
-      border-bottom: t('border');
-    }
-
+      border-bottom: var(--border);
     &-date {
       font-size: 1.4rem;
 

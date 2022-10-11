@@ -19,9 +19,7 @@
     transition-timing-function: ease-out;
     width: 16px;
 
-    @include themed() {
-      background-color: t('primary');
-    }
+      background-color: var(--primary);
 
     &:nth-child(1) {
       top: calc(50% - 6px);

@@ -15,9 +15,7 @@
       line-height: 1;
       text-decoration: none;
 
-      @include themed() {
-        color: t('primary');
-      }
+        color: var(--primary);
     }
   }
 }

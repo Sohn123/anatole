@@ -6,9 +6,7 @@
     font-weight: 600;
     line-height: 2.2em;
 
-    @include themed() {
-      color: t('primary');
-    }
+      color: var(--primary);
   }
 
   &__list {
@@ -24,9 +22,7 @@
     &-date {
       text-align: right;
 
-      @include themed() {
-        color: t('primary-light');
-      }
+        color: var(--primary-light);
     }
 
     &-title {
@@ -34,13 +30,9 @@
       flex: 0.96;
       text-transform: uppercase;
 
-      @include themed() {
-        color: t('primary');
-      }
+        color: var(--primary);
       &:hover {
-        @include themed() {
-          color: t('info');
-        }
+          color: var(--info);
       }
     }
   }

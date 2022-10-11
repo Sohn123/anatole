@@ -20,9 +20,7 @@
     border-radius: 0.5em;
 
     @include desktop {
-      @include themed() {
-        border: t('border');
-      }
+        border: var(--border);
     }
   }
 
@@ -36,7 +34,7 @@
   &__image {
     max-width: 100%;
     min-width: 100%;
-    box-shadow: t('shadow');
+    box-shadow: var(--shadow);
     overflow: hidden;
     transition: box-shadow 0.3s ease;
     object-fit: cover;
@@ -58,9 +56,7 @@
         padding: 32px 32px 0px 32px;
         max-width: inherit;
 
-        @include themed() {
-          background-color: t('accent');
-        }
+          background-color: var(--accent);
 
         @include desktop {
           width: 60%;
@@ -91,31 +87,23 @@
     padding: 32px;
     position: relative;
 
-    @include themed() {
-      background-color: t('accent');
-    }
+      background-color: var(--accent);
 
     @include desktop {
       padding: 48px;
       border-radius: 0.5em;
 
-      @include themed() {
-        box-shadow: t('shadow');
-      }
+        box-shadow: var(--shadow);
     }
 
     &--left,
     &--right {
       margin-top: -24px;
 
-      @include themed() {
-        border-bottom: t('border');
-      }
+        border-bottom: var(--border);
 
       @include desktop {
-        @include themed() {
-          background: t('primary-lighter');
-        }
+          background: var(--primary-lighter);
         border-bottom: 0px;
         width: 60%;
         margin-top: -48px;
@@ -161,9 +149,7 @@
     padding: 10px;
     margin-right: 10px;
 
-    @include themed() {
-      border: 1px solid t('primary-light');
-    }
+      border: 1px solid var(--primary-light);
 
     &-wrapper {
       display: flex;

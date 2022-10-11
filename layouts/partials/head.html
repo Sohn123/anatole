@@ -234,18 +234,49 @@
 
   <!-- Schema.org-->
   {{ partial "schema.html" . }}
-  <style>
-  body {
-    visibility: hidden;
-    opacity: 0;
-  }
-</style>
-<noscript>
-  <style>
-    body {
-      visibility: visible;
-      opacity: 1;
-    }
-  </style>
-</noscript>
+    {{ if not .Site.Params.disableThemeSwitcher }}
+      <script>
+        const getStoredThemeStyle = () => localStorage.getItem('theme');
+
+        const setThemeStyle = (style) => {
+          localStorage.setItem('theme', style);
+          document.documentElement.setAttribute('data-theme', style)
+        };
+
+        const switchTheme = () => {
+          const currThemeStyle = getStoredThemeStyle();
+          switch (currThemeStyle) {
+            case 'light':
+              setThemeStyle('dark');
+              break;
+            case 'dark':
+              setThemeStyle('light');
+              break;
+            default:
+              setThemeStyle('light');
+              break;
+          }
+        };
+
+        document.addEventListener(
+          'DOMContentLoaded',
+          () => {
+            const themeSwitcher = document.querySelector('.themeswitch');
+            themeSwitcher.addEventListener('click', switchTheme, false);
+          },
+          false,
+        );
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', switchTheme, false);
+          const currThemeStyle = getStoredThemeStyle();
+          if (currThemeStyle) {
+            setThemeStyle(currThemeStyle);
+          } else {
+            const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (userPrefersDark) {
+              setThemeStyle('dark');
+            }
+          }
+      </script>
+    {{ end }}
 </head>

@@ -16,17 +16,13 @@
     padding: 0;
     width: 100%;
 
-    @include themed() {
-      background-color: t('primary-lighter');
-    }
+      background-color: var(--primary-lighter);
 
     @include desktop {
       display: flex;
       padding: $py-desktop 30px;
 
-      @include themed() {
-        background-color: t('accent');
-      }
+      background-color: var(--accent);
 
       &--end {
         flex-shrink: 1;
@@ -61,9 +57,7 @@
       padding-bottom: $py-desktop;
 
       @include desktop {
-        @include themed() {
-          border-bottom: 1px solid t('primary');
-        }
+          border-bottom: 1px solid var(--primary);
       }
     }
   }
