@@ -28,17 +28,6 @@ const switchTheme = () => {
   }
 };
 
-const initTheme = () => {
-  const currThemeStyle = getStoredThemeStyle();
-  if (currThemeStyle) {
-    setThemeStyle(currThemeStyle);
-    return;
-  }
-  const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (!userPrefersDark) return;
-  setThemeStyle('dark');
-};
-
 document.addEventListener(
   'DOMContentLoaded',
   () => {
@@ -50,4 +39,3 @@ document.addEventListener(
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', switchTheme, false);
 
-document.addEventListener('DOMContentLoaded', () => initTheme());
