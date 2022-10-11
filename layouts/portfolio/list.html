@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ range $index, $elemen:= .Site.Data.portfolio.portfolioitems }}
     <div
-      class="post {{ with .Site.Params.doNotLoadAnimations }}
+      class="post {{ with site.Params.doNotLoadAnimations }}
         .
 
       {{ else }}
@@ -25,12 +25,34 @@
             >
               {{ if .link }}
                 <a href="{{ .link | safeURL }}" target="_blank" rel="noopener">
-                  <img class="portfolio__image" src="{{ .image | relURL }}" alt="{{ .name | markdownify }}" />
+                  {{ $currentImage := resources.GetMatch .image }}
+                  <img class="portfolio__image" 
+                    srcset='
+                      {{ range $size := site.Params.portfolio.availableImageSizes}}
+                      {{ $resized := $currentImage.Resize (printf "%dx webp q80" ($size))|  resources.Copy (printf "images/portfolio/%s-%d.webp" $currentImage.Name $size )}}
+                      {{ printf "%s %dw," $resized.Permalink $size }}
+                      {{ end }}
+                    ' 
+                    sizes="
+                      (max-width: 960px) 90vw,
+                      20vw"
+                    alt="{{ .name | markdownify }}" 
+                   />
                 </a>
 
               {{ else }}
-                <img class="portfolio__image" src="{{ .image | relURL }}" alt="{{ .name | markdownify }}" />
-
+                  {{ $currentImage := resources.GetMatch .image }}
+                  <img class="portfolio__image" 
+                    srcset='
+                      {{ range $size := site.Params.portfolio.availableImageSizes}}
+                      {{ $resized := $currentImage.Resize (printf "%dx webp q80" ($size))|  resources.Copy (printf "images/portfolio/%s-%d.webp" $currentImage.Name $size )}}
+                      {{ printf "%s %dw," $resized.Permalink $size }}
+                      {{ end }}
+                    ' 
+                    sizes="
+                      (max-width: 960px) 80vw,
+                      20vw"
+                  alt="{{ .name | markdownify }}" />
               {{ end }}
             </div>
 
