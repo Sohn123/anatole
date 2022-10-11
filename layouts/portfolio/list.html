@@ -23,8 +23,8 @@
 
               {{ end }}"
             >
-              {{ if .link }}
-                <a href="{{ .link | safeURL }}" target="_blank" rel="noopener">
+              {{ if .imagelink }}
+                <a href="{{ .imagelink | safeURL }}" target="_blank" rel="noopener">
                   {{ $currentImage := resources.GetMatch .image }}
                   <img class="portfolio__image" 
                     srcset='
@@ -41,11 +41,11 @@
                 </a>
 
               {{ else }}
-                  {{ $currentImage := resources.GetMatch .image }}
+                  {{ $currentImage := $.Resources.GetMatch .image }}
                   <img class="portfolio__image" 
                     srcset='
                       {{ range $size := site.Params.portfolio.availableImageSizes}}
-                      {{ $resized := $currentImage.Resize (printf "%dx webp q80" ($size))|  resources.Copy (printf "images/portfolio/%s-%d.webp" $currentImage.Name $size )}}
+                      {{ $resized := $currentImage.Resize (printf "%dx webp q80" ($size))|  resources.Copy (printf "%s-%d.webp" $currentImage.Name $size )}}
                       {{ printf "%s %dw," $resized.Permalink $size }}
                       {{ end }}
                     ' 
