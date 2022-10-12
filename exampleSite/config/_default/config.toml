@@ -8,6 +8,7 @@ title = "Website of Jane Doe"
 # theme as git submodule
 theme = "anatole"
 
+
 summarylength = 10
 enableEmoji = true
 enableRobotsTXT = true
@@ -25,6 +26,9 @@ pygmentsCodefencesGuessSyntax = true
 
 # Localized dates requires Hugo version 0.87.0
 localizedDates = false
+
+[build]
+  writeStats = true
 
 [markup]
     [markup.goldmark]
