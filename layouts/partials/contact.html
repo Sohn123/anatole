@@ -14,14 +14,13 @@
         <label for="message">{{ i18n "message" }}</label>
         <textarea class="field-style" name="message" id="message" rows="6" placeholder="{{ i18n "message" }}"></textarea>
       </li>
+      {{ if  .Site.Params.contactFormReCaptcha }}
       <li>
         <div class="g-recaptcha" data-sitekey="{{ .Site.Params.contactFormReCaptcha }}"></div>
       </li>
+      {{ end }}
       <li>
         <input class="field-style" type="submit" value="{{ i18n "send" }}" />
-      </li>
-      <li>
-        <input type="text" name="_gotcha" style="display:none" />
       </li>
     </ul>
   </form>

@@ -14,6 +14,7 @@
       {{ range $i, $p := .portfolioitem }}
         <div class="portfolio">
           {{ if .image }}
+            {{ $currentImage := $.Resources.GetMatch .image }}
             <div
               class="portfolio__image-wrapper {{ if (modBool $i 2) }}
                 portfolio__image-wrapper--right
@@ -22,10 +23,10 @@
                 portfolio__image-wrapper--left
 
               {{ end }}"
+              style="background: linear-gradient(15deg,{{ (printf "%s, %s" (index $currentImage.Colors 0) (index $currentImage.Colors 1)) }});"
             >
               {{ if .imagelink }}
                 <a href="{{ .imagelink | safeURL }}" target="_blank" rel="noopener">
-                  {{ $currentImage := resources.GetMatch .image }}
                   <img class="portfolio__image" 
                     srcset='
                       {{ range $size := site.Params.portfolio.availableImageSizes}}
@@ -37,12 +38,18 @@
                       (max-width: 960px) 90vw,
                       20vw"
                     alt="{{ .name | markdownify }}" 
+                    {{ if le $i 2}}
+                    loading="eager"
+                    {{ else }}
+                    loading="lazy"
+                    {{ end }}
+                    style="aspect-ratio: {{ $currentImage.Width }}/{{ $currentImage.Height }};"
                    />
                 </a>
 
               {{ else }}
-                  {{ $currentImage := $.Resources.GetMatch .image }}
-                  <img class="portfolio__image" 
+                  <img 
+                    class="portfolio__image"
                     srcset='
                       {{ range $size := site.Params.portfolio.availableImageSizes}}
                       {{ $resized := $currentImage.Resize (printf "%dx webp q80" ($size))|  resources.Copy (printf "%s-%d.webp" $currentImage.Name $size )}}
@@ -52,7 +59,14 @@
                     sizes="
                       (max-width: 960px) 80vw,
                       20vw"
-                  alt="{{ .name | markdownify }}" />
+                    alt="{{ .name | markdownify }}" 
+                    {{ if le $i 2}}
+                    loading="eager"
+                    {{ else }}
+                    loading="lazy"
+                    {{ end }}
+                  style='aspect-ratio: {{ $currentImage.Width }}/{{ $currentImage.Height }};'
+                  />
               {{ end }}
             </div>
 
