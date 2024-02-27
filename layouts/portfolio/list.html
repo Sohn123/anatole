@@ -23,49 +23,61 @@
                 portfolio__image-wrapper--left
 
               {{ end }}"
-              style="background: linear-gradient(15deg,{{ (printf "%s, %s" (index $currentImage.Colors 0) (index $currentImage.Colors 1)) }});"
+              {{ if eq $currentImage.MediaType.SubType "svg" }}
+                style="background-color: white;"
+              {{ else }}
+                style="background: linear-gradient(15deg,{{ (printf "%s, %s" (index $currentImage.Colors 0) (index $currentImage.Colors 1)) }});"
+              {{ end }}}
             >
               {{ if .imagelink }}
                 <a href="{{ .imagelink | safeURL }}" target="_blank" rel="noopener">
                   <img class="portfolio__image" 
-                    srcset='
-                      {{ range $size := site.Params.portfolio.availableImageSizes}}
-                      {{ $resized := $currentImage.Resize (printf "%dx webp q80" ($size))|  resources.Copy (printf "images/portfolio/%s-%d.webp" $currentImage.Name $size )}}
-                      {{ printf "%s %dw," $resized.Permalink $size }}
-                      {{ end }}
-                    ' 
-                    sizes="
-                      (max-width: 960px) 90vw,
-                      20vw"
+                    {{ if eq $currentImage.MediaType.SubType "svg" }}
+                      src="{{ $currentImage.Permalink }}"
+                    {{ else }}
+                      srcset='
+                        {{ range $size := site.Params.portfolio.availableImageSizes}}
+                        {{ $resized := $currentImage.Resize (printf "%dx webp q80" ($size))|  resources.Copy (printf "images/portfolio/%s-%d.webp" $currentImage.Name $size )}}
+                        {{ printf "%s %dw," $resized.Permalink $size }}
+                        {{ end }}
+                      ' 
+                      sizes="
+                        (max-width: 960px) 90vw,
+                        20vw"
+                      style="aspect-ratio: {{ $currentImage.Width }}/{{ $currentImage.Height }};"
+                    {{ end }}
                     alt="{{ .name | markdownify }}" 
                     {{ if le $i 2}}
                     loading="eager"
                     {{ else }}
                     loading="lazy"
                     {{ end }}
-                    style="aspect-ratio: {{ $currentImage.Width }}/{{ $currentImage.Height }};"
                    />
                 </a>
 
               {{ else }}
                   <img 
                     class="portfolio__image"
-                    srcset='
-                      {{ range $size := site.Params.portfolio.availableImageSizes}}
-                      {{ $resized := $currentImage.Resize (printf "%dx webp q80" ($size))|  resources.Copy (printf "%s-%d.webp" $currentImage.Name $size )}}
-                      {{ printf "%s %dw," $resized.Permalink $size }}
-                      {{ end }}
-                    ' 
-                    sizes="
-                      (max-width: 960px) 80vw,
-                      20vw"
+                    {{ if eq $currentImage.MediaType.SubType "svg" }}
+                      src="{{ $currentImage.Permalink }}"
+                    {{ else }}
+                      srcset='
+                        {{ range $size := site.Params.portfolio.availableImageSizes}}
+                          {{ $resized := $currentImage.Resize (printf "%dx webp q80" ($size))|  resources.Copy (printf "%s-%d.webp" $currentImage.Name $size )}}
+                          {{ printf "%s %dw," $resized.Permalink $size }}
+                        {{ end }}
+                      ' 
+                       sizes="
+                        (max-width: 960px) 80vw,
+                        20vw"
+                      style='aspect-ratio: {{ $currentImage.Width }}/{{ $currentImage.Height }};'
+                    {{ end }}
                     alt="{{ .name | markdownify }}" 
                     {{ if le $i 2}}
                     loading="eager"
                     {{ else }}
                     loading="lazy"
                     {{ end }}
-                  style='aspect-ratio: {{ $currentImage.Width }}/{{ $currentImage.Height }};'
                   />
               {{ end }}
             </div>
